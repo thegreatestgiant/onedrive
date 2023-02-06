@@ -65,7 +65,7 @@ const Navbar = () => {
 
       <div className="mx-auto flex w-full items-center justify-between space-x-4 px-4 py-1">
         <Link href="/" passHref className="flex items-center space-x-2 py-2 hover:opacity-80 dark:text-white md:p-2">
-          <Image src={../../public/favicon.ico} alt="icon" width="25" height="25" priority />
+          <Image src={../../siteConfig.icon} alt="icon" width="25" height="25" priority />
           <span className="hidden font-bold sm:block">{siteConfig.title}</span>
         </Link>
 
@@ -129,7 +129,6 @@ const Navbar = () => {
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" open={isOpen} onClose={() => setIsOpen(false)}>
           <div className="min-h-screen px-4 text-center">
-            <Transition.Child
               as={Fragment}
               enter="ease-out duration-100"
               enterFrom="opacity-0"
