@@ -129,6 +129,7 @@ const Navbar = () => {
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" open={isOpen} onClose={() => setIsOpen(false)}>
           <div className="min-h-screen px-4 text-center">
+             <Transition.Child
               as={Fragment}
               enter="ease-out duration-100"
               enterFrom="opacity-0"
