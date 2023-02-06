@@ -10,7 +10,6 @@ import { useRouter } from 'next/router'
 
 import { getBaseUrl } from '../utils/getBaseUrl'
 import { getStoredToken } from '../utils/protectedRouteHandler'
-import CustomEmbedLinkMenu from './CustomEmbedLinkMenu'
 
 const btnStyleMap = (btnColor?: string) => {
   const colorMap = {
@@ -73,7 +72,6 @@ const DownloadButtonGroup = () => {
 
   return (
     <>
-      <CustomEmbedLinkMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} path={asPath} />
       <div className="flex flex-wrap justify-center gap-2">
         <DownloadButton
           onClickCallback={() => window.open(`/api/raw/?path=${asPath}${hashedToken ? `&odpt=${hashedToken}` : ''}`)}
