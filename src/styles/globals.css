@@ -29,6 +29,6 @@ code[class*='language-'] {
   @apply font-mono !important;
 }
 
-.px-3 {
+.px-me {
     padding-left: 0.75rem;
 }
