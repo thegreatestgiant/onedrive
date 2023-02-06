@@ -87,17 +87,6 @@ const FolderGridLayout = ({
             indeterminate={true}
             title={t('Select all files')}
           />
-          <button
-            title={t('Copy selected files permalink')}
-            className="cursor-pointer rounded p-1.5 hover:bg-gray-300 disabled:cursor-not-allowed disabled:text-gray-400 disabled:hover:bg-white dark:hover:bg-gray-600 disabled:dark:text-gray-600 disabled:hover:dark:bg-gray-900"
-            disabled={totalSelected === 0}
-            onClick={() => {
-              clipboard.copy(handleSelectedPermalink(getBaseUrl()))
-              toast.success(t('Copied selected files permalink.'))
-            }}
-          >
-            <FontAwesomeIcon icon={['far', 'copy']} size="lg" />
-          </button>
           {totalGenerating ? (
             <Downloading title={t('Downloading selected files, refresh page to cancel')} style="p-1.5" />
           ) : (
@@ -122,16 +111,6 @@ const FolderGridLayout = ({
             <div className="absolute top-0 right-0 z-10 m-1 rounded bg-white/50 py-0.5 opacity-0 transition-all duration-100 group-hover:opacity-100 dark:bg-gray-900/50">
               {c.folder ? (
                 <div>
-                  <span
-                    title={t('Copy folder permalink')}
-                    className="cursor-pointer rounded px-1.5 py-1 hover:bg-gray-300 dark:hover:bg-gray-600"
-                    onClick={() => {
-                      clipboard.copy(`${getBaseUrl()}${getItemPath(c.name)}`)
-                      toast(t('Copied folder permalink.'), { icon: '👌' })
-                    }}
-                  >
-                    <FontAwesomeIcon icon={['far', 'copy']} />
-                  </span>
                   {folderGenerating[c.id] ? (
                     <Downloading title={t('Downloading folder, refresh page to cancel')} style="px-1.5 py-1" />
                   ) : (
@@ -146,20 +125,6 @@ const FolderGridLayout = ({
                 </div>
               ) : (
                 <div>
-                  <span
-                    title={t('Copy raw file permalink')}
-                    className="cursor-pointer rounded px-1.5 py-1 hover:bg-gray-300 dark:hover:bg-gray-600"
-                    onClick={() => {
-                      clipboard.copy(
-                        `${getBaseUrl()}/api/raw/?path=${getItemPath(c.name)}${
-                          hashedToken ? `&odpt=${hashedToken}` : ''
-                        }`
-                      )
-                      toast.success(t('Copied raw file permalink.'))
-                    }}
-                  >
-                    <FontAwesomeIcon icon={['far', 'copy']} />
-                  </span>
                   <a
                     title={t('Download file')}
                     className="cursor-pointer rounded px-1.5 py-1 hover:bg-gray-300 dark:hover:bg-gray-600"
