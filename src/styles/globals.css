@@ -28,3 +28,7 @@ pre[class*='language-'],
 code[class*='language-'] {
   @apply font-mono !important;
 }
+
+.px-3 {
+    padding-left: 0.75rem;
+}
