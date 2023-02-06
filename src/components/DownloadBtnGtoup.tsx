@@ -80,22 +80,6 @@ const DownloadButtonGroup = () => {
           btnIcon="file-download"
           btnTitle={t('Download the file directly through OneDrive')}
         />
-        <DownloadButton
-          onClickCallback={() => {
-            clipboard.copy(`${getBaseUrl()}/api/raw/?path=${asPath}${hashedToken ? `&odpt=${hashedToken}` : ''}`)
-            toast.success(t('Copied direct link to clipboard.'))
-          }}
-          btnColor="pink"
-          btnText={t('Copy direct link')}
-          btnIcon="copy"
-          btnTitle={t('Copy the permalink to the file to the clipboard')}
-        />
-        <DownloadButton
-          onClickCallback={() => setMenuOpen(true)}
-          btnColor="teal"
-          btnText={t('Customise link')}
-          btnIcon="pen"
-        />
       </div>
     </>
   )
